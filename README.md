@@ -30,4 +30,18 @@ Packaging a 3-tier application (ReactJS for frontend, Django for backend, and Po
 
 ## Steps to set up the desktop applications:
 
-(1) 
+**Step 1: Prerequisites**
+Before you begin, make sure you have:
+
+1) Node.js and npm installed.
+2) Basic understanding of Electron, React, and Django.
+3) PostgreSQL installed locally (if needed).
+
+**Step 2: Setting Up the Electron Project**
+1) Create an Electron Project:
+````
+mkdir my-electron-app
+cd my-electron-app
+npm init -y
+npm install electron --save-dev
+````
