@@ -6,7 +6,7 @@ Before the infra is ready, it has to consider the patching and maintenance for a
 The frontend application (ReactJS+Electron requires to open another software application in the desktop.
 This documents would have 3 main topics :
 
-(1) Steps to set up the desktop application <br>
+(1) [Steps to set up the desktop application](steps_set_up_desktop_application.md) <br>
 (2) Steps to distribute to client and install the desktop applicaion in client's desktop <br>
 (3) Maintenance Management before deploying to the servers <br>
 (4) Strategies migrate to the servers (3 tiers)
