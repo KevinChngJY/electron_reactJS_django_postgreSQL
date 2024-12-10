@@ -2,4 +2,4 @@
 
 The initiave is driven by the following reasons :
 
-** 1. Offline Accessibility **
+**1. Offline Accessibility**
