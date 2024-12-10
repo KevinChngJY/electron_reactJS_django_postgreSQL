@@ -1,4 +1,4 @@
-# Package 3 tiers Application into Single Desktop Application
+# Package 3 tiers Application into Desktop Application
 
 Packaging a 3-tier application (ReactJS for frontend, Django for backend, and PostgreSQL for the database) into a single desktop application using Electron is often driven by the following reasons:
 
