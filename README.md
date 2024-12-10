@@ -90,6 +90,9 @@ const App = () => {
 export default App;
 ````
 ** Step 4 Setup Django Server **
+````
+pip install django
+````
 1) Create a new Django project:
 ````
 django-admin startproject my_django_server
