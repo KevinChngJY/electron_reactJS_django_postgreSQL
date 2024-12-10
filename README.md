@@ -11,4 +11,4 @@ This documents would have 3 main topics :
 (3) Maintenance Management before deploying to the servers <br>
 (4) Strategies migrate to the servers (3 tiers)
 
-## For Distribution
+**Why use Electron?**
