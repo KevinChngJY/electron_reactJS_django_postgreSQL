@@ -1,7 +1,9 @@
 # Testing the 3 tiers application on the Window Desktop
 
 The goal is to run the three tiers (ReactJS + Electron, Django, PostgreSQL) on the desktop for testing purposes. Once the infrastructure is ready, we plan to deploy them to a proper server.
-Before the infra is ready, it has to consider the patching and maintenance for all the components
+Before the infra is ready, it has to consider the patching and maintenance for all the components.
+
+The frontend application (ReactJS+Electron requires to open another software application in the desktop.
 
 ## Steps to set up the desktop applications:
 
