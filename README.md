@@ -2,7 +2,7 @@
 
 Packaging a 3-tier application (ReactJS for frontend, Django for backend, and PostgreSQL for the database) into a single desktop application using Electron is often driven by the following reasons:
 
-**1. Offline Accessibility**
+**1. Offline Accessibility**\br
 ** Users can run the application entirely on their local machine without requiring a constant internet connection. This is beneficial in environments where connectivity is limited or unreliable.
 ** A self-contained Electron app can bundle everything required (frontend, backend, and database), making it fully functional offline.
 
