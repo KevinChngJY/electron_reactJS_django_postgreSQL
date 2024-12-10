@@ -90,21 +90,21 @@ const App = () => {
 export default App;
 ````
 ** Step 4 Setup Django Server **
+1) Create a Virtual Environment:
 ````
 python -m venv venv
-````
-````
 venv\Scripts\activate
 ````
+2) Install Django:
 ````
 pip install django
 ````
-1) Create a new Django project:
+3) Create a New Django Project:
 ````
 django-admin startproject my_django_server
 cd my_django_server
 ````
-2) Configure PostgreSQL in Django:
+4) Configure PostgreSQL in Django:
 Open settings.py and add the PostgreSQL configuration:
 ````
 DATABASES = {
@@ -118,20 +118,72 @@ DATABASES = {
     }
 }
 ````
-3) Create a Django app:
+5) Create a Django app:
 ````
 python manage.py startapp myapp
 ````
-4) Define a simple API endpoint in myapp/views.py:
+6) Define the Model in myapp/models.py:
 ````
+from django.db import models
+
+class Item(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+````
+7) Register the Model in myapp/admin.py (Optional for admin interface):
+````
+from django.contrib import admin
+from .models import Item
+
+admin.site.register(Item)
+````
+8) Add the App to Installed Apps: Open my_django_server/settings.py and add "myapp" to INSTALLED_APPS:
+````
+INSTALLED_APPS = [
+    # Other apps
+    'myapp',
+]
+````
+9) Run Migrations:
+Generate migration files:
+````
+python manage.py makemigrations
+````
+Apply migrations:
+````
+python manage.py migrate
+````
+10) Seed Data (Optional): Create a fixture file myapp/fixtures/initial_data.json to populate the database:
+````
+[
+    {
+        "model": "myapp.item",
+        "pk": 1,
+        "fields": {
+            "name": "Sample Item 1",
+            "description": "This is a sample item.",
+            "created_at": "2024-01-01T00:00:00Z"
+        }
+    }
+]
+````
+Load the fixture:
+````
+python manage.py loaddata initial_data
+````
+11) Define a Simple API Endpoint in myapp/views.py
 from django.http import JsonResponse
-from .models import YourModel
+from .models import Item
 
 def items(request):
-    items = YourModel.objects.values()
+    items = Item.objects.values()
     return JsonResponse(list(items), safe=False)
 ````
-5) Configure the API endpoint in my_django_server/urls.py
+12) Configure the API Endpoint in my_django_server/urls.py:
 ````
 from django.urls import path
 from myapp import views
@@ -140,3 +192,8 @@ urlpatterns = [
     path('api/items/', views.items),
 ]
 ````
+13) Run the Development Server: Start the Django server to test the setup:
+````
+python manage.py runserver
+````
+14) Verify the API Endpoint: Open your browser and navigate to http://localhost:8000/api/items/. It should return a JSON response with the seeded items.
