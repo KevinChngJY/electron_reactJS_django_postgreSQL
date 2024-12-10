@@ -172,3 +172,5 @@ urlpatterns = [
 python manage.py runserver
 ````
 14) Verify the API Endpoint: Open your browser and navigate to http://localhost:8000/api/items/. It should return a JSON response with the seeded items.
+
+## For Distribution
