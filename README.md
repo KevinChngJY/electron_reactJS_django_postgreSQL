@@ -1,1 +1,1 @@
-# electron_reactJS_django_postgreSQL
+# Package 3 tiers Application into Single Desktop Application
