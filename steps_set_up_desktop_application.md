@@ -59,7 +59,7 @@ const App = () => {
 
 export default App;
 ````
-** Step 4 Setup Django Server **
+**Step 4 Setup Django Server**
 1) Create a Virtual Environment:
 ````
 python -m venv venv
