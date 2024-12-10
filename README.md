@@ -4,6 +4,11 @@ The goal is to run the three tiers (ReactJS + Electron, Django, PostgreSQL) on t
 Before the infra is ready, it has to consider the patching and maintenance for all the components.
 
 The frontend application (ReactJS+Electron requires to open another software application in the desktop.
+This documents would have 3 main topics :
+
+(1) Steps to set up the desktop application
+(2) Steps to distribute to client and install the desktop applicaion in client's desktop
+(3) Maintenance Management before deploying to the servers
 
 ## Steps to set up the desktop applications:
 
