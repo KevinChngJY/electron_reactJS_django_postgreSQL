@@ -45,3 +45,89 @@ cd my-electron-app
 npm init -y
 npm install electron --save-dev
 ````
+**Step 3: Integrate React into the Electron Project**
+1) Install React and React DOM:
+````
+npm install react@18.0.0 react-dom@18.0.0
+````
+2) Create the React entry point:
+** Inside src/renderer, create an index.js:
+````
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+````
+3) Create a basic React app component App.js:
+** Inside src/renderer, create App.js:
+````
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const App = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        // Fetch data from Django API
+        axios.get('http://localhost:8000/api/items/')
+            .then(response => setItems(response.data))
+            .catch(error => console.error(error));
+    }, []);
+
+    return (
+        <div>
+            <h1>Items from Django API</h1>
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default App;
+````
+** Step 4 Setup Django Server **
+1) Create a new Django project:
+````
+django-admin startproject my_django_server
+cd my_django_server
+````
+2) Configure PostgreSQL in Django:
+Open settings.py and add the PostgreSQL configuration:
+````
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_database_name',
+        'USER': 'your_database_user',
+        'PASSWORD': 'your_database_password',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+````
+3) Create a Django app:
+````
+python manage.py startapp myapp
+````
+4) Define a simple API endpoint in myapp/views.py:
+````
+from django.http import JsonResponse
+from .models import YourModel
+
+def items(request):
+    items = YourModel.objects.values()
+    return JsonResponse(list(items), safe=False)
+````
+5) Configure the API endpoint in my_django_server/urls.py
+````
+from django.urls import path
+from myapp import views
+
+urlpatterns = [
+    path('api/items/', views.items),
+]
+````
