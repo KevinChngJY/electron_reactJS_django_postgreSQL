@@ -91,6 +91,12 @@ export default App;
 ````
 ** Step 4 Setup Django Server **
 ````
+python -m venv venv
+````
+````
+venv\Scripts\activate
+````
+````
 pip install django
 ````
 1) Create a new Django project:
