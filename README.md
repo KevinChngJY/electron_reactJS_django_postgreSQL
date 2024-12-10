@@ -176,6 +176,7 @@ Load the fixture:
 python manage.py loaddata initial_data
 ````
 11) Define a Simple API Endpoint in myapp/views.py
+````
 from django.http import JsonResponse
 from .models import Item
 
